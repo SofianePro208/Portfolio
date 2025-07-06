@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resumeModal = document.getElementById('resumeModal');
     const closeModalBtn = document.querySelector('.close-btn');
     const resumeIframe = document.getElementById('resume-iframe');
-    const cvPath = 'cv/Rezak_Souilah_CV.pdf'; // <-- IMPORTANT: Make sure this path is correct!
+    const cvPath = 'cv/cv.pdf'; // <-- IMPORTANT: Make sure this path is correct!
 
     // Function to open the modal
     function openModal() {
