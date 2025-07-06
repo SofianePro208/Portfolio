@@ -43,11 +43,13 @@ This is my personal portfolio website that highlights my journey as a physics ed
 
 
 Portfolio/
+
 ├── index.html          
 ├── style.css           
 ├── script.js           
 ├── cv/                
 ├── images/
+
 └── README.md
 
 
