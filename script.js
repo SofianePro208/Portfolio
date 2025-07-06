@@ -103,13 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // IMPORTANT: CHANGE THIS TO YOUR ACTUAL GITHUB USERNAME!
     const GITHUB_USERNAME = "SofianePro208"; 
     // IMPORTANT: Make sure this path exactly matches your folder and file name.
-    const CV_FILE_PATH = "cv/cv.pdf"; 
+    const CV_FILE_PATH = "cv/cvv.pdf"; 
     // -------------------
 
     // This creates the full, final URL for the viewer
-    const pdfUrl = `https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cv.pdf
+    const pdfUrl = `https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cvv.pdf
 `;
-    const viewerUrl = `https://docs.google.com/gview?url=https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cv.pdf&embedded=true`;
+    const viewerUrl = `https://docs.google.com/gview?url=https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cvv.pdf&embedded=true`;
 
     // Function to open the modal
     function openModal() {
