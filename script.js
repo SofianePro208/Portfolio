@@ -93,6 +93,47 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+ // --- CV MODAL LOGIC ---
+    const viewResumeBtn = document.getElementById('viewResumeBtn');
+    const resumeModal = document.getElementById('resumeModal');
+    const closeModalBtn = document.querySelector('.close-btn');
+    const resumeIframe = document.getElementById('resume-iframe');
+    const cvPath = 'cv/Rezak_Souilah_CV.pdf'; // <-- IMPORTANT: Make sure this path is correct!
 
+    // Function to open the modal
+    function openModal() {
+        resumeIframe.setAttribute('src', cvPath);
+        resumeModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        resumeModal.classList.remove('active');
+        resumeIframe.setAttribute('src', ''); // Stop PDF from loading in background
+        document.body.style.overflow = 'auto';
+    }
+
+    // Event Listeners
+    viewResumeBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the link from navigating
+        openModal();
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Close modal if user clicks on the background overlay
+    resumeModal.addEventListener('click', (e) => {
+        if (e.target === resumeModal) {
+            closeModal();
+        }
+    });
+
+    // Close modal if user presses the 'Escape' key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
 });
 
