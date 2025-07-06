@@ -94,43 +94,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
  // --- CV MODAL LOGIC ---
-    const viewResumeBtn = document.getElementById('viewResumeBtn');
+     const viewResumeBtn = document.getElementById('viewResumeBtn');
     const resumeModal = document.getElementById('resumeModal');
     const closeModalBtn = document.querySelector('.close-btn');
     const resumeIframe = document.getElementById('resume-iframe');
-    const cvPath = 'cv/cv.pdf'; // <-- IMPORTANT: Make sure this path is correct!
+
+    // --- CONFIGURATION ---
+    // IMPORTANT: CHANGE THIS TO YOUR ACTUAL GITHUB USERNAME!
+    const GITHUB_USERNAME = "SofianePro208"; 
+    // IMPORTANT: Make sure this path exactly matches your folder and file name.
+    const CV_FILE_PATH = "cv/cv.pdf"; 
+    // -------------------
+
+    // This creates the full, final URL for the viewer
+    const pdfUrl = `https://SofianePro208.github.io/cv/cv.pdf`;
+    const viewerUrl = `https://docs.google.com/gview?url=pdfUrl&embedded=true`;
 
     // Function to open the modal
     function openModal() {
-        resumeIframe.setAttribute('src', cvPath);
+        // Set the iframe src to the Google Viewer URL
+        resumeIframe.setAttribute('src', viewerUrl);
+        // Show the modal
         resumeModal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // Stop the background from scrolling
+        document.body.style.overflow = 'hidden'; 
     }
 
     // Function to close the modal
     function closeModal() {
+        // Hide the modal
         resumeModal.classList.remove('active');
-        resumeIframe.setAttribute('src', ''); // Stop PDF from loading in background
+        // Important: Clear the src to stop the PDF from loading in the background
+        resumeIframe.setAttribute('src', ''); 
+        // Allow background scrolling again
         document.body.style.overflow = 'auto';
     }
 
-    // Event Listeners
-    viewResumeBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent the link from navigating
+    // --- EVENT LISTENERS ---
+
+    // When you click "View Resume"
+    viewResumeBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Stop the link from doing anything by itself
         openModal();
     });
 
+    // When you click the 'X' button
     closeModalBtn.addEventListener('click', closeModal);
 
-    // Close modal if user clicks on the background overlay
-    resumeModal.addEventListener('click', (e) => {
+    // When you click the dark background of the modal
+    resumeModal.addEventListener('click', function(e) {
         if (e.target === resumeModal) {
             closeModal();
         }
     });
 
-    // Close modal if user presses the 'Escape' key
-    window.addEventListener('keydown', (e) => {
+    // When you press the 'Escape' key
+    window.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
             closeModal();
         }
