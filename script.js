@@ -107,8 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------
 
     // This creates the full, final URL for the viewer
-    const pdfUrl = `https://SofianePro208.github.io/cv/cv.pdf`;
-    const viewerUrl = `https://docs.google.com/gview?url=pdfUrl&embedded=true`;
+    const pdfUrl = `https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cv.pdf
+`;
+    const viewerUrl = `https://docs.google.com/gview?url=https://raw.githubusercontent.com/SofianePro208/Portfolio/2f41d4b9b8aa8c3a7d4f8584f28be66e2b6d6550/cv/cv.pdf&embedded=true`;
 
     // Function to open the modal
     function openModal() {
