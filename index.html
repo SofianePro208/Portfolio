@@ -39,8 +39,8 @@
                 <h2>a <span id="typing-effect"></span></h2>
 <p>I create clean, interactive, and educational web platforms that make science learning simple and accessible.</p>
                 <a href="#projects" class="btn">View My Work</a>
-                <a href="[LINK_TO_YOUR_RESUME.PDF]" class="btn btn-secondary" target="_blank">View Resume</a>
-            </div>
+<a href="#" id="viewResumeBtn" class="btn btn-secondary">View Resume</a>
+	    </div>
         </section>
 
         <!-- ABOUT SECTION -->
@@ -124,6 +124,13 @@ KALEM Physics is an educational web platform designed to make learning physics e
     <a href="#home" id="scrollTopBtn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </a>
+ <!-- CV MODAL VIEWER -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <iframe id="resume-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
     <!-- Typed.js for the typing effect -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
