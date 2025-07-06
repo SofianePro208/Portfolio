@@ -41,15 +41,15 @@ This is my personal portfolio website that highlights my journey as a physics ed
 
 ## 📁 Project Structure
 
-\`\`\`bash
+
 Portfolio/
-├── index.html          # Main HTML page
-├── style.css           # Custom styles
-├── script.js           # JS for interactivity (if any)
-├── cv/                 # Folder containing CV PDF
-├── assets/             # Images and icons
-└── README.md           # This file
-\`\`\`
+├── index.html          
+├── style.css           
+├── script.js           
+├── cv/                
+├── images/
+└── README.md
+
 
 ---
 
@@ -59,11 +59,10 @@ Portfolio/
 
 To run the project locally:
 
-\`\`\`bash
+
 git clone https://github.com/SofianePro208/Portfolio.git
 cd Portfolio
 start index.html
-\`\`\`
 
 Or simply open `index.html` in your browser.
 
