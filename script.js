@@ -155,53 +155,96 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-        // --- CONTACT FORM SUBMISSION ---
-    const form = document.getElementById('contact-form');
-    if (form) { // Only run this code if the form exists on the page
-        const result = document.getElementById('form-result');
+        // --- CONTACT FORM SUBMISSION (WITH VALIDATION) ---
+const form = document.getElementById('contact-form');
+if (form) { // Only run this code if the form exists on the page
+    const result = document.getElementById('form-result');
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-            
-            result.innerHTML = "Please wait..."
-
-            fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                })
-                .then(async (response) => {
-                    let jsonResponse = await response.json();
-                    if (response.status == 200) {
-                        result.innerHTML = jsonResponse.message;
-                        result.style.color = '#32cd32'; // Green for success
-                    } else {
-                        console.log(response);
-                        result.innerHTML = jsonResponse.message;
-                        result.style.color = '#ff4500'; // Orange-red for error
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                    result.innerHTML = "Something went wrong!";
-                    result.style.color = '#ff4500';
-                })
-                .then(function() {
-                    form.reset();
-                    setTimeout(() => {
-                        result.style.display = 'none';
-                    }, 5000); // Hide message after 5 seconds
-                });
-        });
+    // A simple regex for email validation
+    function isValidEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
     }
 
-}); // This should be the final closing brace of your file
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop the form from submitting immediately
 
+        // --- VALIDATION CHECK ---
+        if (!emailInput.value || !isValidEmail(emailInput.value)) {
+            // Show the error message and style the input
+            emailError.textContent = "Please enter a valid email address.";
+            emailError.classList.add('visible');
+            emailInput.classList.add('input-error');
+            
+            // Vibrate the form container for a nice effect (optional but cool)
+            document.querySelector('.contact-form-container').style.animation = 'shake 0.3s';
+            setTimeout(() => {
+                document.querySelector('.contact-form-container').style.animation = '';
+            }, 300);
+
+            return; // Stop the function here if validation fails
+        }
+        // --- END OF VALIDATION CHECK ---
+
+        // If validation passes, continue with submission
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        result.innerHTML = "Please wait..."
+        result.style.color = 'var(--text-color)'; // Reset color
+
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = jsonResponse.message;
+                    result.style.color = '#32cd32'; // Green for success
+                } else {
+                    console.log(response);
+                    result.innerHTML = jsonResponse.message;
+                    result.style.color = '#ff4500'; // Orange-red for error
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+                result.style.color = '#ff4500';
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.innerHTML = '';
+                }, 5000);
+            });
+    });
+
+    // Bonus: Remove error message as the user starts typing
+    emailInput.addEventListener('input', () => {
+        if (emailError.classList.contains('visible')) {
+            emailError.classList.remove('visible');
+            emailInput.classList.remove('input-error');
+        }
+    });
+}
+
+// Add this animation keyframe to your CSS file if you want the shake effect
+// Find a good place in style.css to add this:
+/*
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+*/
 
 
