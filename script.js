@@ -154,9 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
-});
 
-    // --- CONTACT FORM SUBMISSION ---
+        // --- CONTACT FORM SUBMISSION ---
     const form = document.getElementById('contact-form');
     if (form) { // Only run this code if the form exists on the page
         const result = document.getElementById('form-result');
@@ -203,3 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 }); // This should be the final closing brace of your file
+
+
+
