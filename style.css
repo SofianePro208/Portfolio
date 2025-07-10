@@ -83,11 +83,12 @@ nav {
     margin: 0 auto;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--heading-color);
-    text-decoration: none;
+/* اللوجو */
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-links {
