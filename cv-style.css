@@ -1,0 +1,237 @@
+/* --- ACADEMIC CV STYLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --cv-bg: #FFFFFF;
+    --sidebar-bg: #F0F4F7;
+    --primary-color: #3B82A1;
+    --text-color: #555;
+    --heading-color: #333;
+    --border-color: #E0E0E0;
+    --red-tag-bg: #D9534F;
+    --skill-bar-bg: #E0E0E0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e4e9f0; /* A neutral background to frame the CV */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0;
+}
+
+.cv-container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: var(--cv-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SIDEBAR (LEFT COLUMN) --- */
+.cv-sidebar {
+    background-color: var(--sidebar-bg);
+    width: 35%;
+    padding: 30px;
+    border-right: 1px solid var(--border-color);
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    margin-bottom: 15px;
+}
+.profile-section h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin: 0;
+}
+.profile-section .lastname {
+    font-weight: 300;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    word-break: break-word;
+}
+.contact-info i {
+    color: var(--primary-color);
+    width: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+.contact-info a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.contact-info a:hover {
+    color: var(--primary-color);
+}
+
+.sidebar-section h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.skill {
+    margin-bottom: 15px;
+}
+.skill span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--skill-bar-bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.skill-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* --- MAIN CONTENT (RIGHT COLUMN) --- */
+.cv-main {
+    width: 65%;
+    padding: 30px;
+}
+
+.main-section {
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    background-color: #fdfdfd;
+}
+.main-section h2 {
+    font-size: 1.5rem;
+    color: var(--cv-bg);
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    margin: -20px -20px 20px -20px; /* Pull header to edges */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed var(--border-color);
+}
+.timeline-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.timeline-content {
+    flex-grow: 1;
+}
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+.timeline-content .institution {
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.timeline-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.timeline-date {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    height: fit-content;
+    white-space: nowrap;
+}
+.timeline-date.red-tag {
+    background-color: var(--red-tag-bg);
+}
+
+.contributions-box {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--sidebar-bg);
+}
+.contributions-box h4 {
+    margin: 0 0 15px 0;
+    color: var(--primary-color);
+}
+.contributions-box ul {
+    list-style-type: '•  ';
+    padding-left: 20px;
+    margin: 0;
+}
+.contributions-box ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.cv-footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .cv-container {
+        flex-direction: column;
+    }
+    .cv-sidebar, .cv-main {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .cv-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
