@@ -155,15 +155,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-       // --- CONTACT FORM SUBMISSION (WITH VALIDATION & TOAST NOTIFICATION) ---
+       // --- CONTACT FORM SUBMISSION (FOR NETLIFY, WITH VALIDATION & TOAST) ---
 const form = document.getElementById('contact-form');
 
 if (form) { // Only run this code if the form exists on the page
+    // --- Get all the elements we need ---
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
     const submitButton = form.querySelector('button[type="submit"]');
-
-    // Toast notification elements
     const toast = document.getElementById('toast-notification');
     const toastIcon = toast.querySelector('.toast-icon i');
     const toastTitle = document.getElementById('toast-title');
@@ -171,12 +170,10 @@ if (form) { // Only run this code if the form exists on the page
     const toastClose = document.getElementById('toast-close');
     let toastTimeout;
 
-    // Function to show the toast notification
+    // --- Function to show the toast notification ---
     function showToast(type, title, message) {
-        // Clear any existing timeouts
         if (toastTimeout) clearTimeout(toastTimeout);
-        
-        toast.className = 'show'; // Reset classes and show
+        toast.className = 'show';
         if (type === 'success') {
             toast.classList.add('success');
             toastIcon.className = 'fas fa-check-circle';
@@ -186,29 +183,25 @@ if (form) { // Only run this code if the form exists on the page
         }
         toastTitle.textContent = title;
         toastBody.textContent = message;
-
-        // Automatically hide after 5 seconds
-        toastTimeout = setTimeout(() => {
-            toast.classList.remove('show');
-        }, 5000);
+        toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 5000);
     }
 
-    // Close button for the toast
     toastClose.addEventListener('click', () => {
         toast.classList.remove('show');
         if (toastTimeout) clearTimeout(toastTimeout);
     });
 
-    // A simple regex for email validation
+    // --- Email validation function ---
     function isValidEmail(email) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
-
+    
+    // --- Main form submission event listener ---
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // --- VALIDATION CHECK ---
+        // --- Validation Check ---
         if (!emailInput.value || !isValidEmail(emailInput.value)) {
             emailError.textContent = "Please enter a valid email address.";
             emailError.classList.add('visible');
@@ -216,43 +209,32 @@ if (form) { // Only run this code if the form exists on the page
             return;
         }
 
-        // --- SUBMISSION LOGIC ---
+        // --- Submission to Netlify ---
         submitButton.disabled = true;
         submitButton.innerHTML = "Sending...";
-        
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
 
-        fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let jsonResponse = await response.json();
-                if (response.status == 200) {
-                    showToast('success', 'Success!', 'Your message has been sent successfully.');
-                } else {
-                    console.log(response);
-                    showToast('error', 'Error!', jsonResponse.message || 'Something went wrong.');
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                showToast('error', 'Error!', 'Something went wrong on our end.');
-            })
-            .finally(() => {
-                form.reset();
-                submitButton.disabled = false;
-                submitButton.innerHTML = "Send Message";
-            });
+        // Netlify requires the data to be sent in a specific format
+        const formData = new FormData(form);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            showToast('success', 'Success!', 'Your message has been sent successfully.');
+        })
+        .catch((error) => {
+            showToast('error', 'Error!', 'There was a problem submitting your form.');
+            console.error(error);
+        })
+        .finally(() => {
+            form.reset();
+            submitButton.disabled = false;
+            submitButton.innerHTML = "Send Message";
+        });
     });
 
-    // Remove error message as the user starts typing
+    // --- Remove error on input ---
     emailInput.addEventListener('input', () => {
         if (emailError.classList.contains('visible')) {
             emailError.classList.remove('visible');
