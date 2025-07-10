@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initializes the typing effect on the hero section
     const options = {
         strings: [
-            'EdTech Developer',       
-'Web Design Enthusiast',  
-'Creative Problem Solver',
-'Lifelong Learner',
-'Open Source Contributor', 
+            'Shaping Ideas into Interfaces',       
+'Creative Front-End Alchemist',  
+'Code with a Cause',
+'Merging Logic & Imagination',
+'Always in Beta', 
 
         ],
         typeSpeed: 50,
