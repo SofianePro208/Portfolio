@@ -573,3 +573,83 @@ footer {
 .error-message.visible {
     display: block;
 }
+
+/* --- TOAST NOTIFICATION WINDOW STYLES --- */
+#toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100%;
+    max-width: 380px;
+    background-color: var(--card-background);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 5px solid #32cd32; /* Default is green for success */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 2000;
+    
+    /* Animation: starts off-screen */
+    transform: translateX(110%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Style for when the toast is active/visible */
+#toast-notification.show {
+    transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Styles for success and error states */
+#toast-notification.success {
+    border-left-color: #32cd32; /* Green */
+}
+#toast-notification.success .toast-icon i {
+    color: #32cd32;
+}
+
+#toast-notification.error {
+    border-left-color: #ff6b6b; /* Red */
+}
+#toast-notification.error .toast-icon i {
+    color: #ff6b6b;
+}
+
+.toast-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.toast-message p {
+    margin: 0;
+    padding: 0;
+}
+
+#toast-title {
+    font-weight: 700;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+
+#toast-body {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.toast-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.toast-close-btn:hover {
+    color: var(--heading-color);
+}
