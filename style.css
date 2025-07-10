@@ -487,3 +487,75 @@ footer {
     color: #ffffff;
     text-shadow: none;
 }
+
+
+/* --- CONTACT PAGE & FORM STYLES --- */
+#contact-page {
+    padding-top: 120px; /* Add padding to push content below fixed header */
+    min-height: 90vh;
+}
+
+#contact-page p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+}
+
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--card-background);
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--heading-color);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(214, 93, 177, 0.3); /* Glow effect using primary color */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize, but not horizontal */
+}
+
+#contact-form button.btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+#form-result {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
