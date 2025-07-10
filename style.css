@@ -819,3 +819,166 @@ footer {
 @keyframes stroke { 100% { stroke-dashoffset: 0; } }
 
 
+/* --- ACADEMIC CV PAGE STYLES --- */
+.cv-page-main {
+    padding-top: 80px; /* Adjust if needed to clear fixed header */
+}
+
+#cv-intro {
+    text-align: center;
+    padding: 60px 20px;
+}
+#cv-intro .profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: var(--primary-gradient);
+    margin-bottom: 20px;
+}
+#cv-intro h1 {
+    color: var(--heading-color);
+    font-size: 2.8rem;
+}
+#cv-intro .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+.contact-details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+.contact-details-grid div i {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 10px;
+}
+
+.cv-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: left;
+}
+.cv-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+.cv-section h2::after {
+    content: ''; display: block; width: 80px; height: 4px;
+    background-image: var(--primary-gradient);
+    margin: 10px auto;
+}
+.cv-section h2 i {
+    margin-right: 15px;
+}
+
+/* Timeline Styles */
+.cv-timeline {
+    position: relative;
+    padding-left: 50px;
+}
+.cv-timeline::before { /* The vertical line */
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-dot {
+    position: absolute;
+    left: -44px; /* (50px padding - 6px) */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: var(--primary-gradient);
+    border: 4px solid var(--background-color);
+}
+.timeline-card {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+}
+.timeline-card h3 {
+    color: var(--heading-color);
+    margin: 0 0 5px 0;
+}
+.timeline-card .timeline-date {
+    display: inline-block;
+    background-image: var(--primary-gradient);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.timeline-card .institution {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+.timeline-card .description {
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Skills & Certs Grid */
+.skills-and-certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.skill-category {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: 15px;
+}
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.skill-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.skill-list li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.back-home-section {
+    text-align: center;
+    padding: 40px 20px;
+}
