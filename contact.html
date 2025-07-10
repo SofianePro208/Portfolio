@@ -39,6 +39,8 @@
 
             <div class="contact-form-container">
                 <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <!-- THIS IS THE NEW, CRUCIAL LINE -->
+    <input type="hidden" name="form-name" value="contact" />
 
     <!-- Netlify Anti-Spam Field (hidden from users) -->
     <p class="hidden" style="display:none;">
