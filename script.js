@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-       // --- CONTACT FORM SUBMISSION (FOR NETLIFY, WITH SUCCESS OVERLAY) ---
+      // --- CONTACT FORM SUBMISSION (FOR NETLIFY, WITH MODAL WINDOW) ---
 const form = document.getElementById('contact-form');
 
 if (form) { // Only run this code if the form exists on the page
@@ -163,8 +163,30 @@ if (form) { // Only run this code if the form exists on the page
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
     const submitButton = form.querySelector('button[type="submit"]');
-    const successOverlay = document.getElementById('success-overlay');
-    const resetFormBtn = document.getElementById('reset-form-btn');
+    
+    // Modal window elements
+    const successModal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-success-modal');
+    const okBtn = document.getElementById('ok-btn');
+    
+    // --- Function to hide the modal ---
+    function hideSuccessModal() {
+        successModal.classList.remove('active');
+    }
+
+    // --- Event listeners to close the modal ---
+    closeModalBtn.addEventListener('click', hideSuccessModal);
+    okBtn.addEventListener('click', hideSuccessModal);
+    successModal.addEventListener('click', (e) => { // Close if background is clicked
+        if (e.target === successModal) {
+            hideSuccessModal();
+        }
+    });
+    window.addEventListener('keydown', (e) => { // Close with Escape key
+        if (e.key === 'Escape' && successModal.classList.contains('active')) {
+            hideSuccessModal();
+        }
+    });
 
     // --- Email validation function ---
     function isValidEmail(email) {
@@ -196,33 +218,17 @@ if (form) { // Only run this code if the form exists on the page
         })
         .then(() => {
             // SUCCESS!
-            // Hide the form and show the success overlay
-            form.style.display = 'none';
-            successOverlay.classList.add('active');
+            form.reset();
+            successModal.classList.add('active');
         })
         .catch((error) => {
-            // If there's an error, we can use the old toast notification
-            // (or you can create a similar error overlay)
             alert('There was a problem submitting your form. Please try again.');
             console.error(error);
         })
         .finally(() => {
-            // Reset button state regardless of outcome
             submitButton.disabled = false;
             submitButton.innerHTML = "Send Message";
         });
-    });
-
-    // --- Logic for the "Send Another Message" button ---
-    resetFormBtn.addEventListener('click', () => {
-        // Hide the overlay and show the form again
-        successOverlay.classList.remove('active');
-
-        // Use a small delay to let the fade-out animation finish
-        setTimeout(() => {
-            form.reset();
-            form.style.display = 'block';
-        }, 400); // 400ms delay
     });
 
     // --- Remove error on input ---
@@ -233,7 +239,6 @@ if (form) { // Only run this code if the form exists on the page
         }
     });
 }
-
 }); // This should be the final closing brace of your file
 
 
