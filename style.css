@@ -248,7 +248,17 @@ nav {
     font-size: 3.5rem;
     color: var(--heading-color);
 }
-
+/* --- CUSTOM TEXT SELECTION STYLE --- */
+::selection {
+    background-color: #D65DB1; /* The vibrant pink from your gradient */
+    color: #ffffff; /* White text for high contrast */
+    text-shadow: none;
+}
+::-moz-selection { /* This is for Firefox compatibility */
+    background-color: #D65DB1;
+    color: #ffffff;
+    text-shadow: none;
+}
 /* --- PROJECTS SECTION --- */
 .projects-grid {
     display: grid;
