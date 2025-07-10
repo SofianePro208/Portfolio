@@ -553,4 +553,23 @@ footer {
     text-shadow: none;
 }
 
+/* --- FORM VALIDATION STYLES --- */
 
+/* Style for the input field when there's an error */
+.form-group input.input-error {
+    border-color: #ff6b6b; /* A nice, soft red */
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3); /* Red glow effect */
+}
+
+/* Style for the error message itself */
+.error-message {
+    display: none; /* Hidden by default */
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Make the error message visible when it has the 'visible' class */
+.error-message.visible {
+    display: block;
+}
