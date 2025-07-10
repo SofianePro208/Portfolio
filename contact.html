@@ -65,7 +65,7 @@
 		    <!-- ... your <form> ... -->
 </form>
 
-<!-- SUCCESS MESSAGE OVERLAY -->
+<!-- SUCCESS MESSAGE OVERLAY 
 <div id="success-overlay">
     <div class="success-content">
         <div class="success-icon-wrapper">
@@ -78,7 +78,7 @@
         <p>Thank you for reaching out. I will get back to you as soon as possible.</p>
         <button id="reset-form-btn" class="btn btn-secondary">Send Another Message</button>
     </div>
-</div>
+</div>-->
                 <!-- This is for the success/error message -->
                 <!-- <div id="form-result"></div> -->
             </div>
@@ -98,17 +98,31 @@
     <script src="script.js"></script>
 
 
-<!-- TOAST NOTIFICATION WINDOW -->
+<!-- TOAST NOTIFICATION WINDOW 
 <div id="toast-notification" class="">
     <div class="toast-icon">
-        <i class="fas fa-check-circle"></i> <!-- Icon will change with JS -->
+        <i class="fas fa-check-circle"></i> <!-- Icon will change with JS 
     </div>
     <div class="toast-message">
         <p id="toast-title">Success</p>
         <p id="toast-body">Your message has been sent successfully!</p>
     </div>
     <div class="toast-close-btn" id="toast-close">×</div>
+</div>-->
+	<!-- SUCCESS MODAL WINDOW -->
+<div id="success-modal" class="modal-window">
+    <div class="modal-content">
+        <span class="close-modal-btn" id="close-success-modal">×</span>
+        <div class="success-icon-wrapper">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="success-icon-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="success-icon-checkmark" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2>Message Sent!</h2>
+        <p>Thank you for your message. I'll get back to you shortly.</p>
+        <button id="ok-btn" class="btn">OK</button>
+    </div>
 </div>
-	
 </body>
 </html>
