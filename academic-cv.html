@@ -4,150 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic CV - Sofiane Kalem</title>
-    <!-- We are linking to a NEW stylesheet for this page -->
-    <link rel="stylesheet" href="cv-style.css"> 
+    <!-- Link to your MAIN stylesheet -->
+    <link rel="stylesheet" href="style.css"> 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="cv-container">
-        <!-- ================== LEFT COLUMN (SIDEBAR) ================== -->
-        <aside class="cv-sidebar">
-            <div class="profile-section">
-                <img src="images\20230807_021601.jpg" alt="Sofiane Kalem" class="profile-pic"> <!-- Using image from OCR -->
-                <h1>Sofiane <span class="lastname">KALEM</span></h1>
+    <!-- ================== HEADER & NAVIGATION ================== -->
+    <!-- This is the same header used on your contact page -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Sofiane Kalem</a> 
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
+        </nav>
+    </header>
 
-            <div class="contact-info">
-                <p><i class="fas fa-calendar-alt"></i> July 28, 2002</p>
-                <p><i class="fas fa-map-marker-alt"></i> Kharouba, Mostaganem, Algeria</p>
-                <p><i class="fas fa-phone"></i> +213 658787555</p>
-                <p><i class="fas fa-id-card"></i> <a href="https://orcid.org/0009-0008-6439-0147">ORCID Profile</a></p> <!-- Add link to ORCID profile -->
-                <p><i class="fas fa-envelope"></i> sofiane.l.kalem@ens-lagh.dz</p>
+    <main class="cv-page-main">
+        <!-- ================== CV INTRO SECTION ================== -->
+        <section id="cv-intro">
+            <img src="https://i.imgur.com/kS5T2G7.png" alt="Sofiane Kalem" class="profile-pic">
+            <h1>Sofiane Kalem's Academic CV</h1>
+            <p class="subtitle">Physics Teacher & Researcher</p>
+            <div class="contact-details-grid">
+                <div><i class="fas fa-calendar-alt"></i> July 28, 2002</div>
+                <div><i class="fas fa-map-marker-alt"></i> Mostaganem, Algeria</div>
+                <div><i class="fas fa-phone"></i> +213 658787555</div>
+                <div><i class="fas fa-envelope"></i> sofiane.l.kalem@ens-lagh.dz</div>
             </div>
+        </section>
 
-            <div class="sidebar-section">
-                <h2>Technical Skills</h2>
-                <div class="skill">
-                    <span>LaTeX</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 89%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>ChemOffice</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>Origin Lab</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 89%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>Gwyddion</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                </div>
-                 <div class="skill">
-                    <span>Highscore Plus</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>Microsoft Office</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 94%;"></div></div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <h2>Languages</h2>
-                <div class="skill">
-                    <span>Arabic</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 100%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>English</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 89%;"></div></div>
-                </div>
-                <div class="skill">
-                    <span>French</span>
-                    <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- ================== RIGHT COLUMN (MAIN CONTENT) ================== -->
-        <main class="cv-main">
-            <section class="main-section">
-                <h2>Professional Experience</h2>
-                <div class="timeline-item">
-                    <div class="timeline-content">
+        <!-- ================== EXPERIENCE SECTION ================== -->
+        <section id="experience" class="cv-section">
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="cv-timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
                         <h3>Physics Teacher</h3>
+                        <span class="timeline-date">2025 - Present</span>
                         <p class="institution">Ministry of National Education, Algeria</p>
-                        <p>Currently teaching physics at the secondary school level, developing lesson plans and conducting laboratory experiments to enhance student understanding of physical concepts.</p>
+                        <p class="description">Currently teaching physics at the secondary school level, developing lesson plans and conducting laboratory experiments to enhance student understanding of physical concepts.</p>
                     </div>
-                    <div class="timeline-date red-tag">Since 2025</div>
                 </div>
-            </section>
-
-            <section class="main-section">
-                <h2>Education & Training</h2>
-                <div class="timeline-item">
-                    <div class="timeline-content">
+            </div>
+        </section>
+        
+        <!-- ================== EDUCATION SECTION ================== -->
+        <section id="education" class="cv-section">
+            <h2><i class="fas fa-user-graduate"></i> Education & Training</h2>
+            <div class="cv-timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
                         <h3>Trainee Physics Teacher</h3>
+                        <span class="timeline-date">2025</span>
                         <p class="institution">Omar Dehina Secondary School, Laghouat, Algeria</p>
-                        <p>Completed practical teaching training with hands-on classroom experience, lesson planning, and student assessment under supervision of experienced educators.</p>
+                        <p class="description">Completed practical teaching training with hands-on classroom experience, lesson planning, and student assessment.</p>
                     </div>
-                    <div class="timeline-date red-tag">2025</div>
                 </div>
-                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Member - Google Developer Student Clubs (GDSC)</h3>
-                        <p class="institution">Google Developer Group - UOITC (Remote)</p>
-                        <p>Participated in online workshops and coding sessions focused on Google technologies and software development, enhancing digital literacy skills.</p>
-                    </div>
-                    <div class="timeline-date red-tag">2021-2022</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Fundamentals of Digital Marketing Certificate</h3>
-                        <p class="institution">Google Digital Garage (Online)</p>
-                        <p>Completed comprehensive course covering SEO, SEM, content strategy, social media, and e-commerce with hands-on experience in Google Ads and Analytics.</p>
-                    </div>
-                    <div class="timeline-date red-tag">2021</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
+                <div class="timeline-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
                         <h3>Secondary School Physics Teacher Training</h3>
+                        <span class="timeline-date">2020 - 2025</span>
                         <p class="institution">École Normale Supérieure, Laghouat, Algeria</p>
-                        <p>Completed comprehensive teacher training program specializing in physics education, pedagogy, and curriculum development.</p>
+                        <p class="description">Completed comprehensive teacher training program specializing in physics education, pedagogy, and curriculum development.</p>
                     </div>
-                    <div class="timeline-date red-tag">2020-2025</div>
                 </div>
-                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Baccalaureate in Technical Sciences – Electrical Engineering</h3>
-                        <p class="institution">Malaika Tayeb Ben Aissa High School, Ksar El Boukhari, Médéa, Algeria</p>
-                        <p>Graduated with specialization in electrical engineering, providing strong foundation in technical and scientific principles.</p>
+                <div class="timeline-entry">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3>Baccalaureate in Technical Sciences</h3>
+                        <span class="timeline-date">2017 - 2020</span>
+                        <p class="institution">Malaika Tayeb Ben Aissa High School, Médéa, Algeria</p>
+                        <p class="description">Graduated with specialization in electrical engineering, providing strong foundation in technical and scientific principles.</p>
                     </div>
-                    <div class="timeline-date red-tag">2017-2020</div>
                 </div>
-            </section>
-            
-            <section class="main-section contributions">
-                <h2>Teaching Contributions</h2>
-                <div class="contributions-box">
-                    <h4>Key Contributions:</h4>
-                    <ul>
-                        <li>Developed innovative lesson plans incorporating modern teaching methodologies</li>
-                        <li>Conducted practical laboratory sessions to enhance student engagement</li>
-                        <li>Implemented assessment strategies aligned with educational standards</li>
-                        <li>Collaborated with faculty to improve physics curriculum delivery</li>
+            </div>
+        </section>
+
+        <!-- ================== SKILLS SECTION ================== -->
+        <section id="cv-skills" class="cv-section">
+             <h2><i class="fas fa-cogs"></i> Skills & Certifications</h2>
+             <div class="skills-and-certs-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> LaTeX</li>
+                        <li><i class="fas fa-check"></i> ChemOffice</li>
+                        <li><i class="fas fa-check"></i> Origin Lab</li>
+                        <li><i class="fas fa-check"></i> Gwyddion</li>
+                        <li><i class="fas fa-check"></i> Highscore Plus</li>
+                        <li><i class="fas fa-check"></i> Microsoft Office</li>
                     </ul>
                 </div>
-            </section>
-            
-            <div class="cv-footer">
-                Sofiane Kalem <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-            </div>
-        </main>
-    </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                     <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Arabic (Native)</li>
+                        <li><i class="fas fa-check"></i> English (Professional)</li>
+                        <li><i class="fas fa-check"></i> French (Professional)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Certifications</h3>
+                     <ul class="skill-list">
+                        <li><i class="fab fa-google"></i> Google Digital Marketing</li>
+                        <li><i class="fab fa-google-drive"></i> GDSC Member (2021-22)</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+        <section class="back-home-section">
+            <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Main Portfolio</a>
+        </section>
+    </main>
+
     <!-- FOOTER -->
     <footer>
         <div class="social-links">
@@ -157,5 +139,8 @@
         </div>
         <p>&copy; 2025 Sofiane KALEM. All rights reserved.</p>
     </footer>
+
+    <!-- Link to your MAIN JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
