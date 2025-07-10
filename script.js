@@ -237,14 +237,7 @@ if (form) { // Only run this code if the form exists on the page
     });
 }
 
-// Add this animation keyframe to your CSS file if you want the shake effect
-// Find a good place in style.css to add this:
-/*
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-*/
+}); // This should be the final closing brace of your file
+
 
 
