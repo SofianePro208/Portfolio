@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-       // --- CONTACT FORM SUBMISSION (FOR NETLIFY, WITH VALIDATION & TOAST) ---
+       // --- CONTACT FORM SUBMISSION (FOR NETLIFY, WITH SUCCESS OVERLAY) ---
 const form = document.getElementById('contact-form');
 
 if (form) { // Only run this code if the form exists on the page
@@ -163,33 +163,8 @@ if (form) { // Only run this code if the form exists on the page
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
     const submitButton = form.querySelector('button[type="submit"]');
-    const toast = document.getElementById('toast-notification');
-    const toastIcon = toast.querySelector('.toast-icon i');
-    const toastTitle = document.getElementById('toast-title');
-    const toastBody = document.getElementById('toast-body');
-    const toastClose = document.getElementById('toast-close');
-    let toastTimeout;
-
-    // --- Function to show the toast notification ---
-    function showToast(type, title, message) {
-        if (toastTimeout) clearTimeout(toastTimeout);
-        toast.className = 'show';
-        if (type === 'success') {
-            toast.classList.add('success');
-            toastIcon.className = 'fas fa-check-circle';
-        } else {
-            toast.classList.add('error');
-            toastIcon.className = 'fas fa-exclamation-circle';
-        }
-        toastTitle.textContent = title;
-        toastBody.textContent = message;
-        toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 5000);
-    }
-
-    toastClose.addEventListener('click', () => {
-        toast.classList.remove('show');
-        if (toastTimeout) clearTimeout(toastTimeout);
-    });
+    const successOverlay = document.getElementById('success-overlay');
+    const resetFormBtn = document.getElementById('reset-form-btn');
 
     // --- Email validation function ---
     function isValidEmail(email) {
@@ -213,7 +188,6 @@ if (form) { // Only run this code if the form exists on the page
         submitButton.disabled = true;
         submitButton.innerHTML = "Sending...";
 
-        // Netlify requires the data to be sent in a specific format
         const formData = new FormData(form);
         fetch("/", {
             method: "POST",
@@ -221,17 +195,34 @@ if (form) { // Only run this code if the form exists on the page
             body: new URLSearchParams(formData).toString()
         })
         .then(() => {
-            showToast('success', 'Success!', 'Your message has been sent successfully.');
+            // SUCCESS!
+            // Hide the form and show the success overlay
+            form.style.display = 'none';
+            successOverlay.classList.add('active');
         })
         .catch((error) => {
-            showToast('error', 'Error!', 'There was a problem submitting your form.');
+            // If there's an error, we can use the old toast notification
+            // (or you can create a similar error overlay)
+            alert('There was a problem submitting your form. Please try again.');
             console.error(error);
         })
         .finally(() => {
-            form.reset();
+            // Reset button state regardless of outcome
             submitButton.disabled = false;
             submitButton.innerHTML = "Send Message";
         });
+    });
+
+    // --- Logic for the "Send Another Message" button ---
+    resetFormBtn.addEventListener('click', () => {
+        // Hide the overlay and show the form again
+        successOverlay.classList.remove('active');
+
+        // Use a small delay to let the fade-out animation finish
+        setTimeout(() => {
+            form.reset();
+            form.style.display = 'block';
+        }, 400); // 400ms delay
     });
 
     // --- Remove error on input ---
