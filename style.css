@@ -249,7 +249,15 @@ nav {
     font-size: 3.5rem;
     color: var(--heading-color);
 }
-
+.skill-category {
+  margin: 2rem auto 1rem auto;  /* هامش علوي وسفلي ومركزي */
+  font-size: 1.5rem;
+  color: #007BFF;
+  font-weight: bold;
+  text-align: center;           /* توسيط النص */
+  display: block;               /* لتأكيد ظهورها كسطر جديد */
+  width: 100%;                  /* تمتد على كامل السطر */
+}
 /* --- PROJECTS SECTION --- */
 .projects-grid {
     display: grid;
