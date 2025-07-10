@@ -155,12 +155,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-        // --- CONTACT FORM SUBMISSION (WITH VALIDATION) ---
+       // --- CONTACT FORM SUBMISSION (WITH VALIDATION & TOAST NOTIFICATION) ---
 const form = document.getElementById('contact-form');
+
 if (form) { // Only run this code if the form exists on the page
-    const result = document.getElementById('form-result');
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // Toast notification elements
+    const toast = document.getElementById('toast-notification');
+    const toastIcon = toast.querySelector('.toast-icon i');
+    const toastTitle = document.getElementById('toast-title');
+    const toastBody = document.getElementById('toast-body');
+    const toastClose = document.getElementById('toast-close');
+    let toastTimeout;
+
+    // Function to show the toast notification
+    function showToast(type, title, message) {
+        // Clear any existing timeouts
+        if (toastTimeout) clearTimeout(toastTimeout);
+        
+        toast.className = 'show'; // Reset classes and show
+        if (type === 'success') {
+            toast.classList.add('success');
+            toastIcon.className = 'fas fa-check-circle';
+        } else {
+            toast.classList.add('error');
+            toastIcon.className = 'fas fa-exclamation-circle';
+        }
+        toastTitle.textContent = title;
+        toastBody.textContent = message;
+
+        // Automatically hide after 5 seconds
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 5000);
+    }
+
+    // Close button for the toast
+    toastClose.addEventListener('click', () => {
+        toast.classList.remove('show');
+        if (toastTimeout) clearTimeout(toastTimeout);
+    });
 
     // A simple regex for email validation
     function isValidEmail(email) {
@@ -169,32 +206,23 @@ if (form) { // Only run this code if the form exists on the page
     }
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop the form from submitting immediately
+        e.preventDefault();
 
         // --- VALIDATION CHECK ---
         if (!emailInput.value || !isValidEmail(emailInput.value)) {
-            // Show the error message and style the input
             emailError.textContent = "Please enter a valid email address.";
             emailError.classList.add('visible');
             emailInput.classList.add('input-error');
-            
-            // Vibrate the form container for a nice effect (optional but cool)
-            document.querySelector('.contact-form-container').style.animation = 'shake 0.3s';
-            setTimeout(() => {
-                document.querySelector('.contact-form-container').style.animation = '';
-            }, 300);
-
-            return; // Stop the function here if validation fails
+            return;
         }
-        // --- END OF VALIDATION CHECK ---
 
-        // If validation passes, continue with submission
+        // --- SUBMISSION LOGIC ---
+        submitButton.disabled = true;
+        submitButton.innerHTML = "Sending...";
+        
         const formData = new FormData(form);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
-        
-        result.innerHTML = "Please wait..."
-        result.style.color = 'var(--text-color)'; // Reset color
 
         fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
@@ -207,28 +235,24 @@ if (form) { // Only run this code if the form exists on the page
             .then(async (response) => {
                 let jsonResponse = await response.json();
                 if (response.status == 200) {
-                    result.innerHTML = jsonResponse.message;
-                    result.style.color = '#32cd32'; // Green for success
+                    showToast('success', 'Success!', 'Your message has been sent successfully.');
                 } else {
                     console.log(response);
-                    result.innerHTML = jsonResponse.message;
-                    result.style.color = '#ff4500'; // Orange-red for error
+                    showToast('error', 'Error!', jsonResponse.message || 'Something went wrong.');
                 }
             })
             .catch(error => {
                 console.log(error);
-                result.innerHTML = "Something went wrong!";
-                result.style.color = '#ff4500';
+                showToast('error', 'Error!', 'Something went wrong on our end.');
             })
-            .then(function() {
+            .finally(() => {
                 form.reset();
-                setTimeout(() => {
-                    result.innerHTML = '';
-                }, 5000);
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Send Message";
             });
     });
 
-    // Bonus: Remove error message as the user starts typing
+    // Remove error message as the user starts typing
     emailInput.addEventListener('input', () => {
         if (emailError.classList.contains('visible')) {
             emailError.classList.remove('visible');
