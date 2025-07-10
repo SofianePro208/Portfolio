@@ -250,6 +250,7 @@ nav {
     color: var(--heading-color);
 }
 .skill-category {
+      margin: 0rem auto 1rem auto;  /* هامش علوي وسفلي ومركزي */
   font-size: 1.5rem;
   color: #ab98a5;
   font-weight: bold;
