@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = {
         strings: [
             'Creative Front-End Alchemist',       
-'Purpose-Driven Developer',  
-'Interface Designer Turning Ideas into Reality',
-'Problem Solver Blending Logic & Imagination',
+'Human-Centered Developer',  
+'UI Visionary',
+'Logic-Driven Creative Thinker',
 'Lifelong Learner — Always in Beta', 
 
         ],
