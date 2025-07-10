@@ -38,10 +38,13 @@
             <p>Have a question, a project proposal, or just want to say hello? Go ahead.</p>
 
             <div class="contact-form-container">
-                <form id="contact-form">
-                    <!-- This hidden input is where you put your access key! -->
-                    <input type="hidden" name="access_key" value="[YOUR_ACCESS_KEY_HERE]">
-                    
+                <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+    <!-- Netlify Anti-Spam Field (hidden from users) -->
+    <p class="hidden" style="display:none;">
+        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+    </p>
+			
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
