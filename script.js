@@ -75,6 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
  // --- SCROLL TO TOP BUTTON ---
     const scrollTopBtn = document.getElementById('scrollTopBtn');
+// --- DISABLE RIGHT-CLICK CONTEXT MENU ---
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        // You could optionally add an alert here, but it's generally not recommended
+        // alert("Right-clicking is disabled on this site.");
+    });
 
     // Show or hide the button based on scroll position
     window.addEventListener('scroll', () => {
