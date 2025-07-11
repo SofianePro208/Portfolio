@@ -991,12 +991,9 @@ footer {
 }
 .skill-level {
     height: 100%;
-    width: 0; /* Starts at 0, animated by JS */
     background-image: var(--primary-gradient);
     border-radius: 7px;
     box-shadow: 0 0 15px rgba(214, 93, 177, 0.4); /* Glow effect */
-    transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0.3s ease;
 }
 .skill:hover .skill-level {
     box-shadow: 0 0 25px rgba(214, 93, 177, 0.7); /* Brighter glow on hover */
