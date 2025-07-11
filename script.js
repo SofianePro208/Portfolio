@@ -230,7 +230,31 @@ if (form) { // Only run this code if the form exists on the page
             submitButton.innerHTML = "Send Message";
         });
     });
+// --- ANIMATE SKILL BARS ON SCROLL ---
+const skillsSection = document.getElementById('cv-skills');
+if (skillsSection) {
+    const skillLevels = document.querySelectorAll('.skill-level');
+    
+    const animateSkills = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                skillLevels.forEach(skill => {
+                    const level = skill.getAttribute('data-level');
+                    skill.style.width = level + '%';
+                });
+                // Optional: stop observing after animation to save resources
+                observer.unobserve(skillsSection); 
+            }
+        });
+    };
 
+    const skillsObserver = new IntersectionObserver(animateSkills, {
+        root: null,
+        threshold: 0.3 // Trigger when 30% of the section is visible
+    });
+
+    skillsObserver.observe(skillsSection);
+}
     // --- Remove error on input ---
     emailInput.addEventListener('input', () => {
         if (emailError.classList.contains('visible')) {
