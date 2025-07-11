@@ -947,10 +947,13 @@ footer {
     line-height: 1.7;
 }
 
-/* --- CV SKILL BARS STYLES --- */
+/* ================================================= */
+/* === UPGRADED CV SKILLS & LANGUAGES STYLES === */
+/* ================================================= */
+
 .skills-grid-container {
     display: grid;
-    grid-template-columns: 1fr; /* Default to one column */
+    grid-template-columns: 1fr; /* One column on small screens */
     gap: 40px;
 }
 
@@ -967,27 +970,80 @@ footer {
     font-size: 1.5rem;
 }
 
+/* --- IMPROVED SKILL BAR DESIGN --- */
 .skill {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 .skill-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 500;
     color: var(--text-color);
+    font-size: 1.1rem;
 }
 .skill-bar-wrapper {
     width: 100%;
-    height: 12px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    overflow: hidden;
+    height: 14px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .skill-level {
     height: 100%;
-    width: 0; /* Starts at 0, will be animated by JS */
+    width: 0; /* Starts at 0, animated by JS */
     background-image: var(--primary-gradient);
-    border-radius: 6px;
-    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+    border-radius: 7px;
+    box-shadow: 0 0 15px rgba(214, 93, 177, 0.4); /* Glow effect */
+    transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.3s ease;
+}
+.skill:hover .skill-level {
+    box-shadow: 0 0 25px rgba(214, 93, 177, 0.7); /* Brighter glow on hover */
+}
+
+/* Staggered Animation Delay for Skill Bars */
+.skill-category:first-child .skill:nth-child(1) .skill-level { transition-delay: 0.1s; }
+.skill-category:first-child .skill:nth-child(2) .skill-level { transition-delay: 0.2s; }
+.skill-category:first-child .skill:nth-child(3) .skill-level { transition-delay: 0.3s; }
+.skill-category:first-child .skill:nth-child(4) .skill-level { transition-delay: 0.4s; }
+.skill-category:first-child .skill:nth-child(5) .skill-level { transition-delay: 0.5s; }
+.skill-category:first-child .skill:n-child(6) .skill-level { transition-delay: 0.6s; }
+
+
+/* --- NEW LANGUAGE TAGS DESIGN --- */
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.1rem;
+}
+.language-name {
+    font-weight: 500;
+    color: var(--text-color);
+}
+.proficiency-tag {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.proficiency-tag.native {
+    background-color: var(--primary-color);
+    color: white;
+}
+.proficiency-tag.professional {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
 }
