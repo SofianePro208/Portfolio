@@ -36,22 +36,26 @@ document.addEventListener('DOMContentLoaded', function() {
         revealObserver.observe(elem);
     });
 
-    // --- MOBILE NAVIGATION (HAMBURGER MENU) ---
+    // =======================================================
+    // === MOBILE NAVIGATION (HAMBURGER MENU) ===
+    // =======================================================
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile nav when a link is clicked
-    document.querySelectorAll('.nav-links li a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
+
+        // Close mobile nav when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    }
     
     // --- ACTIVE NAV LINK HIGHLIGHTING ON SCROLL ---
     const sections = document.querySelectorAll('section[id]');
