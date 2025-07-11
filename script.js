@@ -228,8 +228,17 @@ if (form) { // Only run this code if the form exists on the page
         .finally(() => {
             submitButton.disabled = false;
             submitButton.innerHTML = "Send Message";
-        })
+        });
+    });
 
+    // --- Remove error on input ---
+    emailInput.addEventListener('input', () => {
+        if (emailError.classList.contains('visible')) {
+            emailError.classList.remove('visible');
+            emailInput.classList.remove('input-error');
+        }
+    });
+}
 }); // This should be the final closing brace of your file
 
 
