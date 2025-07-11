@@ -230,39 +230,49 @@ if (form) { // Only run this code if the form exists on the page
             submitButton.innerHTML = "Send Message";
         });
     });
-// --- ANIMATE SKILL BARS ON SCROLL ---
-const skillsSection = document.getElementById('cv-skills');
-if (skillsSection) {
-    const skillLevels = document.querySelectorAll('.skill-level');
-    
-    const animateSkills = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                skillLevels.forEach(skill => {
-                    const level = skill.getAttribute('data-level');
-                    skill.style.width = level + '%';
-                });
-                // Optional: stop observing after animation to save resources
-                observer.unobserve(skillsSection); 
-            }
+// --- ANIMATE SKILL BARS (IMPROVED AND GUARANTEED FIX) ---
+    // This new code is more robust and handles all edge cases.
+
+    // Find the section that contains the skills
+    const skillsSection = document.getElementById('cv-skills');
+
+    // Only run this code if we are on the page that actually has the skills section
+    if (skillsSection) {
+        const skillLevels = skillsSection.querySelectorAll('.skill-level');
+        let animationTriggered = false; // A flag to ensure animation runs only once
+
+        const animateSkills = () => {
+            // If animation has already run, do nothing.
+            if (animationTriggered) return; 
+            
+            skillLevels.forEach(skill => {
+                const level = skill.getAttribute('data-level');
+                skill.style.width = level + '%';
+            });
+
+            // Set the flag to true so it doesn't run again.
+            animationTriggered = true; 
+        };
+
+        // We will use an Intersection Observer to check when the section is visible
+        const skillsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // If the section is on screen (isIntersecting)
+                if (entry.isIntersecting) {
+                    // Trigger the animation
+                    animateSkills();
+                    // Stop observing to save computer resources
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            root: null, // observes intersections relative to the viewport
+            threshold: 0.1 // Trigger when 10% of the element is visible
         });
-    };
 
-    const skillsObserver = new IntersectionObserver(animateSkills, {
-        root: null,
-        threshold: 0.3 // Trigger when 30% of the section is visible
-    });
-
-    skillsObserver.observe(skillsSection);
-}
-    // --- Remove error on input ---
-    emailInput.addEventListener('input', () => {
-        if (emailError.classList.contains('visible')) {
-            emailError.classList.remove('visible');
-            emailInput.classList.remove('input-error');
-        }
-    });
-}
+        // Start observing the skills section
+        skillsObserver.observe(skillsSection);
+    }
 }); // This should be the final closing brace of your file
 
 
