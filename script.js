@@ -228,8 +228,7 @@ if (form) { // Only run this code if the form exists on the page
         .finally(() => {
             submitButton.disabled = false;
             submitButton.innerHTML = "Send Message";
-        });
-    });
+        })
 
 }); // This should be the final closing brace of your file
 
