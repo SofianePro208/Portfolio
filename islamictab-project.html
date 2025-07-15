@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="project-page.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    	    <link rel="icon" type="image/png" href="/images/logo.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="shortcut icon" href="/images/logo.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
 </head>
 <body>
 
@@ -18,10 +23,10 @@
         <nav>
             <a href="index.html" class="logo">Sofiane Kalem</a> 
             <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="academic-cv.html">Academic CV</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -33,7 +38,7 @@
         <!-- ================== PROJECT HERO SECTION ================== -->
         <section class="project-hero">
             <div class="project-hero-content">
-                <h1>IslamicTab - Chrome Extension</h1>
+                <h1>IslamicTab - Extension</h1>
                 <p class="project-tagline">Your daily source of tranquility and mindfulness, right in your new tab.</p>
                 <img src="images/islamictab.png" alt="IslamicTab main view" class="project-hero-image">
             </div>
@@ -43,7 +48,7 @@
         <section class="project-details-container">
             <div class="project-about">
                 <h2><i class="fas fa-info-circle"></i> About The Project</h2>
-                <p>IslamicTab is a Chrome browser extension designed to replace the default new tab page with a beautiful and functional dashboard. It aims to provide Muslims with a moment of reflection and connection to their faith every time they open a new tab. The interface is clean, minimalist, and focuses on providing essential daily information without being distracting.</p>
+                <p>IslamicTab is a browser extension designed to replace the default new tab page with a beautiful and functional dashboard. It aims to provide Muslims with a moment of reflection and connection to their faith every time they open a new tab. The interface is clean, minimalist, and focuses on providing essential daily information without being distracting.</p>
             </div>
 
             <div class="project-features">
@@ -63,7 +68,7 @@
                     <span>HTML5</span>
                     <span>CSS3</span>
                     <span>JavaScript (ES6+)</span>
-                    <span>Chrome Extension API</span>
+                    <span>Web Extension</span>
                     <span>Prayer Times API</span>
                 </div>
             </div>
@@ -72,9 +77,9 @@
                 <h2><i class="fas fa-download"></i> Download The Extension</h2>
                 <p>Get IslamicTab for your browser. More browser versions are coming soon!</p>
                 <div class="download-buttons">
-                    <a href="[LINK_TO_CHROME_STORE_OR_ZIP_FILE]" class="btn download-btn"><i class="fab fa-chrome"></i> Download for Chrome</a>
-                    <a href="#" class="btn download-btn disabled"><i class="fab fa-firefox-browser"></i> Firefox (Coming Soon)</a>
-                    <a href="#" class="btn download-btn disabled"><i class="fab fa-edge"></i> Edge (Coming Soon)</a>
+                    <a href="[LINK_TO_CHROME_STORE_OR_ZIP_FILE]" class="btn download-btn"><i class="fab fa-chrome"></i> Download for Chromium Browsers (Chrome, Edge...)</a>
+                    <a href="#" class="btn download-btn disabled"><i class="fab fa-firefox-browser"></i> Gecko Browsers (Firefox) (Coming Soon)</a>
+                    <a href="#" class="btn download-btn disabled"><i class="fab fa-edge"></i> WebKit Browsers (Safari) (Coming Soon)</a>
                 </div>
             </div>
         </section>
@@ -84,10 +89,19 @@
         </section>
     </main>
 
-    <!-- ================== FOOTER ================== -->
+        <!-- FOOTER -->
     <footer>
-        <!-- Your standard footer content here -->
+        <div class="social-links">
+            <a href="https://wa.me/message/WGLSISTQWPALO1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+	<a href="https://linkedin.com/in/sofianeklm" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://t.me/SofianeKLM" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <p>&copy; 2025 Sofiane KALEM. All rights reserved.</p>
     </footer>
+    <!-- SCROLL TO TOP BUTTON -->
+    <a href="#" id="scrollTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
