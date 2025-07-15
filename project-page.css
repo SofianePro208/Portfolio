@@ -1,0 +1,121 @@
+/* --- PROJECT DETAIL PAGE STYLES --- */
+
+.project-page-main {
+    padding-top: 80px; /* Clear fixed header */
+}
+
+/* --- Project Hero Section --- */
+.project-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.project-hero h1 {
+    font-size: 3.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+.project-hero .project-tagline {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+.project-hero-image {
+    max-width: 100%;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Project Details Container --- */
+.project-details-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.project-details-container > div {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-details-container h2 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+.project-details-container h2 i {
+    margin-right: 15px;
+}
+
+.project-about p,
+.project-download p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.project-features ul {
+    list-style: none;
+    padding: 0;
+}
+.project-features li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+.project-features li i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tech-tags span {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.download-btn.disabled {
+    background: var(--card-background);
+    color: var(--text-color);
+    cursor: not-allowed;
+    border: 1px solid rgba(255,255,255,0.2);
+    opacity: 0.6;
+}
+.download-btn.disabled:hover {
+    transform: none;
+    background: var(--card-background);
+}
