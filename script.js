@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-effect');
     if (typingElement) {
         const typed = new Typed('#typing-effect', {
-            strings: ['Creative Front-End Alchemist', 'Human-Centered Developer', 'UI Visionary', 'Logic-Driven Creative Thinker	', 'Lifelong Learner — Always in Beta'],
+            strings: ['Creative Mind in Tech', 'Bridge between Code and Design', 'Logical and Visual Thinker', 'Multidisciplinary Educator and Developer', 'Science-Rooted Experience Creator'],
             typeSpeed: 50,
             backSpeed: 25,
             backDelay: 1500,
