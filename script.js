@@ -172,4 +172,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+// =================================================================
+// #7: HOMEPAGE ONLY - PROJECTS "LOAD MORE / SHOW LESS" BUTTON
+// =================================================================
+const toggleBtn = document.getElementById('toggle-projects-btn');
+const projectsGrid = document.querySelector('.projects-grid');
+
+if (toggleBtn && projectsGrid) {
+    const initiallyHiddenProjects = projectsGrid.querySelectorAll('[data-initially-hidden="true"]');
+
+    // If there are no projects to hide/show, hide the button completely.
+    if (initiallyHiddenProjects.length === 0) {
+        toggleBtn.style.display = 'none';
+    }
+
+    // Function to check the state and update the button text
+    function updateButtonState() {
+        const currentlyHidden = projectsGrid.querySelectorAll('.project-card.project-hidden');
+        if (currentlyHidden.length === 0) {
+            // All projects are visible
+            toggleBtn.textContent = 'Show Less';
+        } else {
+            // Some projects are still hidden
+            toggleBtn.textContent = 'Load More Projects';
+        }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        const currentlyHidden = projectsGrid.querySelectorAll('.project-card.project-hidden');
+
+        if (currentlyHidden.length > 0) {
+            // --- LOAD MORE LOGIC ---
+            // Show the next project that is currently hidden
+            const firstHidden = currentlyHidden[0];
+            if (firstHidden) {
+                firstHidden.classList.remove('project-hidden');
+                // Optional: Add a fade-in animation
+                firstHidden.style.animation = 'fadeIn 0.5s ease forwards';
+            }
+        } else {
+            // --- SHOW LESS LOGIC ---
+            // Hide all the projects that were initially hidden
+            initiallyHiddenProjects.forEach(project => {
+                project.classList.add('project-hidden');
+                // Optional: Add a fade-out animation
+                project.style.animation = 'fadeOut 0.5s ease forwards';
+            });
+        }
+        
+        // After any action, update the button's text and state
+        updateButtonState();
+    });
+
+    // Initialize the button text on page load
+    updateButtonState();
+}
+
 }); // This is the final closing brace for the DOMContentLoaded event listener.
